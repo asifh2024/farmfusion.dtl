@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - FarmFusion</title>
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    <div class="auth-container">
+        <div class="auth-box">
+            <div class="auth-header">
+                <a href="index.html" class="back-btn">
+                    <i class="fas fa-arrow-left"></i> Back
+                </a>
+                <div class="auth-brand">
+                    <img src="images/logo.jpg" alt="logo" class="logo-icon">
+                    <span>FarmFusion</span>
+                </div>
+                <h2>Welcome Back</h2>
+                <p>Login to your account</p>
+            </div>
+
+            <form id="loginForm" class="auth-form">
+                <!-- Email Field -->
+                <div class="form-group">
+                    <label for="email">Email Address *</label>
+                    <div class="input-group">
+                        <i class="fas fa-envelope"></i>
+                        <input type="email" id="email" name="email" placeholder="Enter your email" required />
+                    </div>
+                </div>
+
+                <!-- Password Field -->
+                <div class="form-group">
+                    <label for="password">Password *</label>
+                    <div class="input-group password-input-group">
+                        <i class="fas fa-lock"></i>
+                        <input type="password" id="password" name="password" placeholder="Enter your password" required
+                            minlength="6" />
+                        <button type="button" class="password-toggle" onclick="togglePassword(this)">
+                            <i class="fas fa-eye-slash"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- User Type Selection -->
+                <div class="form-group">
+                    <label for="userType">Login As *</label>
+                    <div class="input-group">
+                        <i class="fas fa-user"></i>
+                        <select id="userType" name="userType" required>
+                            <option value="" disabled selected hidden>Select user type</option>
+                            <option value="farmer">Farmer</option>
+                            <option value="buyer">Buyer</option>
+
+                        </select>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn btn-primary btn-full">
+                    <i class="fas fa-sign-in-alt"></i> Login
+                </button>
+
+                <div class="form-divider">
+                    <span>Don't have an account?</span>
+                </div>
+
+                <a href="register.html" class="btn btn-outline btn-full">Register</a>
+            </form>
+
+            <div id="errorMessage" class="error-message"></div>
+        </div>
+    </div>
+
+    <script type="module" src="js/firebase-config.js"></script>
+    <script type="module" src="js/auth.js"></script>
+</body>
+
+</html>

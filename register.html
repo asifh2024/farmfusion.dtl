@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Register - FarmFusion</title>
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    <div class="auth-container">
+        <div class="auth-box register-box">
+            <div class="auth-header">
+                <a href="index.html" class="back-btn">
+                    <i class="fas fa-arrow-left"></i> Back
+                </a>
+                <div class="auth-brand">
+                    <img src="images/logo.jpg" alt="logo" class="logo-icon">
+                    <span>FarmFusion</span>
+                </div>
+                <h2>Create Account</h2>
+                <p>Join our agricultural community</p>
+            </div>
+
+            <form id="registerForm" class="auth-form">
+
+                <div class="form-group">
+                    <label for="userType">Register As *</label>
+                    <div class="input-group">
+                        <i class="fas fa-user-tag"></i>
+                        <select id="userType" name="userType" required>
+                            <option value="" disabled selected hidden>Select Your Role</option>
+                            <option value="farmer">Farmer</option>
+                            <option value="buyer">Buyer</option>
+                        </select>
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    <label for="fullName">Full Name *</label>
+                    <div class="input-group">
+                        <i class="fas fa-user"></i>
+                        <input type="text" id="fullName" name="fullName" placeholder="Enter your full name" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email Address *</label>
+                    <div class="input-group">
+                        <i class="fas fa-envelope"></i>
+                        <input type="email" id="email" name="email" placeholder="Enter your email" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="phone">Phone Number *</label>
+                    <div class="input-group">
+                        <i class="fas fa-phone"></i>
+                        <input type="tel" id="phone" name="phone" placeholder="Enter 10-digit phone number"
+                            pattern="[0-9]{10}" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="password">Password *</label>
+                    <div class="input-group password-input-group">
+                        <i class="fas fa-lock"></i>
+                        <input type="password" id="password" name="password" placeholder="Enter your password" required
+                            minlength="6">
+                        <button type="button" class="password-toggle" onclick="togglePassword(this)">
+                            <i class="fas fa-eye-slash"></i>
+                        </button>
+                    </div>
+                </div>
+
+
+                <div id="dynamicFields"></div>
+
+
+                <div class="form-group checkbox-group">
+                    <div class="input-group checkbox-input-group">
+
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="privacyConsent" required>
+                            <span>I have read and agree to the <a href="privacy-policy.html" target="_blank">Privacy
+                                    Policy</a> and consent to share my contact information as described.</span>
+                        </label>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn btn-primary btn-full">
+                    <i class="fas fa-user-plus"></i> Create Account
+                </button>
+
+                <div class="form-divider">
+                    <span>Already have an account?</span>
+                </div>
+
+                <a href="login.html" class="btn btn-outline btn-full">Login</a>
+            </form>
+
+            <div id="errorMessage" class="error-message"></div>
+            <div id="successMessage" class="success-message"></div>
+        </div>
+    </div>
+
+    <script type="module" src="js/firebase-config.js"></script>
+    <script type="module" src="js/register.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Farmer Dashboard - FarmFusion</title>
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+</head>
+
+<body>
+    <!-- Dashboard Navigation -->
+    <nav class="dashboard-nav">
+        <div class="container">
+            <div class="nav-brand">
+                <img src="images/logo.jpg" alt="logo" class="logo-icon">
+                <span>FarmFusion</span>
+            </div>
+            <div class="nav-user">
+                <span id="userName">Welcome, Farmer</span>
+                <button id="logoutBtn" class="btn-logout">
+                    <i class="fas fa-sign-out-alt"></i> Logout
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Dashboard Content -->
+    <div class="dashboard-container">
+        <div class="container">
+            <!-- Stats Cards -->
+            <div class="stats-grid">
+                <div class="stat-card-dash">
+                    <div class="stat-icon">
+                        <i class="fas fa-box"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3 id="totalListings">0</h3>
+                        <p>Total Listings</p>
+                    </div>
+                </div>
+                <div class="stat-card-dash">
+                    <div class="stat-icon">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3 id="soldItems">0</h3>
+                        <p>Sold Items</p>
+                    </div>
+                </div>
+                <div class="stat-card-dash">
+                    <div class="stat-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3 id="pendingOrders">0</h3>
+                        <p>Pending Orders</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Add New Crop Form -->
+            <div class="dashboard-section">
+                <div class="section-header">
+                    <h2><i class="fas fa-plus-circle"></i> List New Crop</h2>
+                </div>
+
+                <form id="addCropForm" class="crop-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="cropName">Crop Name *</label>
+                            <input type="text" id="cropName" placeholder="e.g., Wheat" required />
+                        </div>
+                        <div class="form-group">
+                            <label for="cropCategory">Category *</label>
+                            <select id="cropCategory" required>
+                                <option value="">Select Category</option>
+                                <option value="Grains">Grains</option>
+                                <option value="Vegetables">Vegetables</option>
+                                <option value="Fruits">Fruits</option>
+                                <option value="Pulses">Pulses</option>
+                                <option value="Oil Seeds">Oil Seeds</option>
+                                <option value="Spices">Spices</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="quantity">Quantity (in kg) *</label>
+                            <input type="number" id="quantity" placeholder="Enter quantity" min="1" required />
+                        </div>
+                        <div class="form-group">
+                            <label for="price">Price per kg (₹) *</label>
+                            <input type="number" id="price" placeholder="Enter price" min="1" required />
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="harvestDate">Harvest Date *</label>
+                            <input type="date" id="harvestDate" required />
+                        </div>
+                        <div class="form-group">
+                            <label for="quality">Quality Grade *</label>
+                            <select id="quality" required>
+                                <option value="">Select Quality</option>
+                                <option value="Premium">Premium</option>
+                                <option value="Grade A">Grade A</option>
+                                <option value="Grade B">Grade B</option>
+                                <option value="Standard">Standard</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="cropImage">Crop Image</label>
+                        <input type="file" id="cropImage" accept="image/*" />
+                        <small>Upload a clear image of your crop (optional)</small>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="description">Description</label>
+                        <textarea id="description" placeholder="Additional details about the crop" rows="3"></textarea>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">
+                        <i class="fas fa-plus"></i> Add Crop Listing
+                    </button>
+                </form>
+            </div>
+
+            <!-- My Listings -->
+            <div class="dashboard-section">
+                <div class="section-header">
+                    <h2><i class="fas fa-list"></i> My Crop Listings</h2>
+                    <div class="filter-group">
+                        <select id="filterStatus">
+                            <option value="all">All Status</option>
+                            <option value="available">Available</option>
+                            <option value="sold">Sold</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div id="cropsContainer" class="crops-grid">
+
+                    <div class="empty-state">
+                        <i class="fas fa-box-open"></i>
+                        <p>No crops listed yet. Add your first crop above!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script type="module" src="js/firebase-config.js"></script>
+    <script type="module" src="js/farmer-dashboard.js"></script>
+    <script type="module" src="js/auth.js"></script>
+</body>
+
+</html>

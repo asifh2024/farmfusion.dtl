@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buyer Dashboard - FarmFusion</title>
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    <!-- Dashboard Navigation -->
+    <nav class="dashboard-nav">
+        <div class="container">
+            <div class="nav-brand">
+                <img src="images/logo.jpg" alt="logo" class="logo-icon">
+                <span>FarmFusion</span>
+            </div>
+            <div class="nav-user">
+                <span id="userName">Welcome, Buyer</span>
+                <button id="logoutBtn" class="btn-logout">
+                    <i class="fas fa-sign-out-alt"></i> Logout
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Dashboard Content -->
+    <div class="dashboard-container">
+        <div class="container">
+
+            <div class="search-section">
+                <div class="search-bar">
+                    <i class="fas fa-search"></i>
+                    <input type="text" id="searchInput" placeholder="Search crops by name...">
+                </div>
+
+                <div class="filters-row">
+                    <select id="filterCategory">
+                        <option value="">All Categories</option>
+                        <option value="Grains">Grains</option>
+                        <option value="Vegetables">Vegetables</option>
+                        <option value="Fruits">Fruits</option>
+                        <option value="Pulses">Pulses</option>
+                        <option value="Oil Seeds">Oil Seeds</option>
+                        <option value="Spices">Spices</option>
+                    </select>
+
+                    <select id="filterLocation">
+                        <option value="">All Locations</option>
+                        <option value="Andhra Pradesh">Andhra Pradesh</option>
+                        <option value="Bihar">Bihar</option>
+                        <option value="Delhi">Delhi</option>
+                        <option value="Gujarat">Gujarat</option>
+                        <option value="Haryana">Haryana</option>
+                        <option value="Karnataka">Karnataka</option>
+                        <option value="Kerala">Kerala</option>
+                        <option value="Madhya Pradesh">Madhya Pradesh</option>
+                        <option value="Maharashtra">Maharashtra</option>
+                        <option value="Punjab">Punjab</option>
+                        <option value="Rajasthan">Rajasthan</option>
+                        <option value="Tamil Nadu">Tamil Nadu</option>
+                        <option value="Uttar Pradesh">Uttar Pradesh</option>
+                        <option value="West Bengal">West Bengal</option>
+                    </select>
+
+                    <select id="filterQuality">
+                        <option value="">All Quality</option>
+                        <option value="Premium">Premium</option>
+                        <option value="Grade A">Grade A</option>
+                        <option value="Grade B">Grade B</option>
+                        <option value="Standard">Standard</option>
+                    </select>
+
+                    <select id="sortBy">
+                        <option value="newest">Newest First</option>
+                        <option value="price-low">Price: Low to High</option>
+                        <option value="price-high">Price: High to Low</option>
+                        <option value="quantity">Quantity</option>
+                    </select>
+                </div>
+            </div>
+
+
+            <div class="dashboard-section">
+                <div class="section-header">
+                    <h2><i class="fas fa-star"></i> Recommended for You</h2>
+                </div>
+                <div id="recommendedCrops" class="crops-grid">
+
+                </div>
+            </div>
+
+            <!-- All Available Crops -->
+            <div class="dashboard-section">
+                <div class="section-header">
+                    <h2><i class="fas fa-box-open"></i> Available Crops</h2>
+                    <span id="cropCount" class="count-badge">0 crops found</span>
+                </div>
+
+                <div id="cropsContainer" class="crops-grid">
+
+                    <div class="loading-state">
+                        <i class="fas fa-spinner fa-spin"></i>
+                        <p>Loading crops...</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contact Modal -->
+
+    <div id="contactModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2 style="margin-bottom: 1.5rem; color: var(--text-dark); display: flex; align-items: center; gap: 10px;">
+                <i class="fas fa-phone" style="color: var(--primary-color);"></i>
+                Crop Details
+            </h2>
+            <div id="farmerDetails" class="farmer-details">
+
+            </div>
+        </div>
+    </div>
+
+
+
+    <script type="module" src="js/firebase-config.js"></script>
+    <script type="module" src="js/buyer-dashboard.js"></script>
+    <script type="module" src="js/auth.js"></script>
+</body>
+
+</html>
